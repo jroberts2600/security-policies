@@ -125,7 +125,7 @@ resource "tfe_sentinel_policy" "tfe_policies_only" {
   description  = "The Terraform config that manages Sentinel policies must not use the authenticated tfe provider to manage non-Sentinel resources."
   organization = "${var.tfe_organization}"
   policy       = "${file("./tfe_policies_only.sentinel")}"
-  enforce_mode = "hard-mandatory"
+  enforce_mode = "advisory"
 }
 
 # Networking policies:
@@ -161,7 +161,7 @@ resource "tfe_sentinel_policy" "aws-restrict-instance-type-dev" {
   description  = "Limit AWS instances to approved list (for dev infrastructure)"
   organization = "${var.tfe_organization}"
   policy       = "${file("./aws-restrict-instance-type-dev.sentinel")}"
-  enforce_mode = "hard-mandatory"
+  enforce_mode = "advisory"
 }
 
 resource "tfe_sentinel_policy" "aws-restrict-instance-type-stage" {
@@ -177,7 +177,7 @@ resource "tfe_sentinel_policy" "aws-restrict-instance-type-prod" {
   description  = "Limit AWS instances to approved list (for prod infrastructure)"
   organization = "${var.tfe_organization}"
   policy       = "${file("./aws-restrict-instance-type-prod.sentinel")}"
-  enforce_mode = "hard-mandatory"
+  enforce_mode = "advisory"
 }
 
 resource "tfe_sentinel_policy" "aws-restrict-instance-type-default" {
