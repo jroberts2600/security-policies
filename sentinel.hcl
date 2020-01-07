@@ -2,7 +2,7 @@ policy "working-hours" {
   enforcement_level = "soft-mandatory"
 }
 
-policy "aws-block-allow-all" {
+policy "aws-block-allow-all-cidr" {
   enforcement_level = "soft-mandatory"
 }
 
